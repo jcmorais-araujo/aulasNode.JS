@@ -23,6 +23,18 @@ app.get("/ola/:nome/:empresa", (requisicao, resposta) => {
     resposta.send(`<h1>Olá ${nome}! Você ainda trabalha na empresa ${empresa}</h1>`);
 });
 
+// Usando Query params
+app.get("/canal/youtube", (requisicao, resposta) => {
+    var canal = requisicao.query["canal"];
+
+    if (canal) {
+        resposta.send(canal);
+    }else{
+        resposta.send("Nenhum canal fornecido");
+    }
+});
+
+
 
 // Criar servidor
 app.listen(4000, (erro) => {
